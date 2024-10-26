@@ -1,24 +1,24 @@
 import tkinter as tk
 from tkinter import messagebox, simpledialog, scrolledtext
-from calculadora import *  # Supondo que esse arquivo contenha as funções de cálculo
+from calculadora import *  
 
 class CalculadoraApp:
     def __init__(self, master):
         self.master = master
         master.title("Calculadora Trabalhista")
 
-        # Estilos e cores da interface
+       
         master.configure(bg="#1F1F1F")
         self.history_text = tk.StringVar()
         self.salario_bruto = 0
         self.horas_trabalhadas = 0
         self.historico = []
 
-        # Label do título
+        
         self.label = tk.Label(master, text="Calculadora Trabalhista", font=("Arial", 18, "bold"), fg="#F0F0F0", bg="#1F1F1F")
         self.label.pack(pady=10)
 
-        # Botões de cálculo
+        
         buttons = [
             ("Calcular Salário Bruto", self.calcular_salario_bruto),
             ("Calcular Horas Extras", self.calcular_horas_extras),
@@ -34,14 +34,14 @@ class CalculadoraApp:
         for text, command in buttons:
             self.create_button(text, command)
 
-        # Área do histórico de cálculos
+    
         self.history_label = tk.Label(master, text="Histórico de Cálculos", fg="#C0C0C0", bg="#1F1F1F", font=("Arial", 12, "bold"))
         self.history_label.pack(pady=5)
 
         self.history_box = scrolledtext.ScrolledText(master, width=50, height=10, bg="#2E2E2E", fg="#DADADA", font=("Arial", 10), state="disabled", wrap="word")
         self.history_box.pack(pady=5, padx=10)
 
-        # Área de detalhes do cálculo
+        
         self.details_label = tk.Label(master, text="Detalhes do Cálculo", fg="#C0C0C0", bg="#1F1F1F", font=("Arial", 12, "bold"))
         self.details_label.pack(pady=5)
 
@@ -64,7 +64,7 @@ class CalculadoraApp:
 
     def add_to_details(self, details):
         self.details_box.config(state="normal")
-        self.details_box.delete(1.0, tk.END)  # Limpa detalhes anteriores
+        self.details_box.delete(1.0, tk.END)  
         self.details_box.insert(tk.END, details)
         self.details_box.config(state="disabled")
 
